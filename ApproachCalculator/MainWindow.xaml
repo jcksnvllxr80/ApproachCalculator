@@ -1,0 +1,207 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApproachCalculator"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        MinHeight="350" 
+        Height="350" 
+        MinWidth="525"
+        Width="525"
+        Background="DarkGray">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Canvas x:Name="corner1"
+                Grid.Row="2"
+                Grid.RowSpan="1"
+                Grid.Column="3"
+                Grid.ColumnSpan="1">
+            <Line X1="0"
+                  Y1="0"
+                  X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}" 
+                  Y2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  SnapsToDevicePixels="False"
+                  RenderOptions.EdgeMode="Aliased"
+                  Stroke="Black"
+                  StrokeThickness="1"/>
+        </Canvas>
+        <Canvas x:Name="corner2"
+                Grid.Row="6"
+                Grid.RowSpan="1"
+                Grid.Column="3"
+                Grid.ColumnSpan="1">
+            <Line X1="0"
+                  Y1="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}" 
+                  Y2="0"
+                  SnapsToDevicePixels="False"
+                  RenderOptions.EdgeMode="Aliased"
+                  Stroke="Black"
+                  StrokeThickness="1"/>
+        </Canvas>
+        <Canvas x:Name="corner3"
+                Grid.Row="6"
+                Grid.RowSpan="1"
+                Grid.Column="5"
+                Grid.ColumnSpan="1">
+            <Line X1="0"
+                  Y1="0"
+                  X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}" 
+                  Y2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  SnapsToDevicePixels="False"
+                  RenderOptions.EdgeMode="Aliased"
+                  Stroke="Black"
+                  StrokeThickness="1"/>
+        </Canvas>
+        <Canvas x:Name="corner4"
+                Grid.Row="2"
+                Grid.RowSpan="1"
+                Grid.Column="5"
+                Grid.ColumnSpan="1">
+            <Line X1="0"
+                  Y1="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}" 
+                  Y2="0"
+                  SnapsToDevicePixels="False"
+                  RenderOptions.EdgeMode="Aliased"
+                  Stroke="Black"
+                  StrokeThickness="1"/>
+        </Canvas>
+        <Canvas x:Name="CrossingImageTopRailCanvas"
+                Grid.Row="3"
+                Grid.RowSpan="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="7">
+            <Line X1="0"
+                  Y1="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}" 
+                  Y2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  SnapsToDevicePixels="False"
+                  RenderOptions.EdgeMode="Aliased"
+                  Stroke="Black"
+                  StrokeThickness="1"/>
+        </Canvas>
+        <Canvas x:Name="CrossingImageBottomRailCanvas"
+                Grid.Row="4"
+                Grid.RowSpan="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="7">
+            <Line X1="0"
+                  Y1="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}" 
+                  Y2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  SnapsToDevicePixels="False"
+                  RenderOptions.EdgeMode="Aliased"
+                  Stroke="Black"
+                  StrokeThickness="1"/>
+        </Canvas>
+        <Canvas x:Name="CrossingImageLeftCurbCanvas"
+                Grid.Row="3"
+                Grid.RowSpan="3"
+                Grid.Column="3"
+                Grid.ColumnSpan="1">
+            <Line X1="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}"
+                  Y1="0"
+                  X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}" 
+                  Y2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  SnapsToDevicePixels="False"
+                  RenderOptions.EdgeMode="Aliased"
+                  Stroke="Black"
+                  StrokeThickness="1"/>
+        </Canvas>
+        <Canvas x:Name="CrossingImageRightCurbCanvas"
+                Grid.Row="3"
+                Grid.RowSpan="3"
+                Grid.Column="4"
+                Grid.ColumnSpan="1">
+            <Line X1="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}"
+                  Y1="0"
+                  X2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualWidth, Mode=OneWay}" 
+                  Y2="{Binding RelativeSource={RelativeSource AncestorType=Canvas}, Path=ActualHeight, Mode=OneWay}"
+                  SnapsToDevicePixels="False"
+                  RenderOptions.EdgeMode="Aliased"
+                  Stroke="Black"
+                  StrokeThickness="1"/>
+        </Canvas>
+        <StackPanel x:Name="UserInputs1"
+                    Grid.Row="2"
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Margin="0,0,0,10"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center">
+            <Label x:Name="CrossingNameLabel"
+                   Content="Crossing Name"
+                   Width="Auto"/>
+            <TextBox x:Name="CrossingNameText"
+                     Width="100"/>
+        </StackPanel>
+        <StackPanel x:Name="UserInputs2"
+                    Grid.Row="5"
+                    Grid.RowSpan="3"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center">
+            <Label x:Name="SpeedLabel"
+                   Content="Speed"
+                   Width="Auto"/>
+            <TextBox x:Name="SpeedText"
+                     PreviewKeyDown="Text_PreviewKeyDown"
+                     Width="50"/>
+            <Label x:Name="WarningTimeLabel"
+                   Content="Warning Time"
+                   Width="Auto"/>
+            <TextBox x:Name="WarningTimeText"
+                     PreviewKeyDown="Text_PreviewKeyDown"
+                     Width="50"/>
+        </StackPanel>
+        <Label x:Name="CrossingNameOutputLabel"
+               Grid.Row="1"
+               Grid.Column="2"
+               Grid.ColumnSpan="5"
+               HorizontalContentAlignment="Center"
+               VerticalAlignment="Center"
+               FontFamily="Arial"
+               FontSize="20"
+               Width="Auto"/>
+        <Label x:Name="SpeedOutputLabel"
+               Grid.Row="5"
+               Grid.Column="6"
+               Grid.ColumnSpan="2"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Width="Auto"/>
+        <Label x:Name="ApproachOutputLabel"
+               Grid.Row="3"
+               Grid.Column="6"
+               Grid.ColumnSpan="2"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Width="Auto"/>
+    </Grid>
+</Window>
